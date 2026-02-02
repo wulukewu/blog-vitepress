@@ -57,6 +57,7 @@ export default defineConfig({
   extends: blogTheme,
   title: "Luke's Blog",
   description: "Hi, I'm Luke!",
+  cleanUrls: true,
   head: [["link", { rel: "icon", href: "/favicon.jpg" }]],
   themeConfig: {
     logo: "/logo.jpg",
