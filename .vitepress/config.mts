@@ -1,5 +1,6 @@
 import { defineConfig } from "vitepress";
 import { getThemeConfig } from "@sugarat/theme/node";
+import mathjax3 from "markdown-it-mathjax3";
 
 const blogTheme = getThemeConfig({
   // custom config
@@ -58,6 +59,64 @@ export default defineConfig({
   title: "Luke's Blog",
   description: "Hi, I'm Luke!",
   cleanUrls: true,
+  markdown: {
+    config: (md) => {
+      md.use(mathjax3);
+    },
+  },
+  vue: {
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => {
+          return [
+            "math",
+            "maction",
+            "maligngroup",
+            "malignmark",
+            "menclose",
+            "merror",
+            "mfenced",
+            "mfrac",
+            "mglyph",
+            "mi",
+            "mlabeledtr",
+            "mlongdiv",
+            "mmultiscripts",
+            "mn",
+            "mo",
+            "mover",
+            "mpadded",
+            "mphantom",
+            "mroot",
+            "mrow",
+            "ms",
+            "mscarries",
+            "mscarry",
+            "msgroup",
+            "msline",
+            "mspace",
+            "msqrt",
+            "msrow",
+            "mstack",
+            "mstyle",
+            "msub",
+            "msup",
+            "msubsup",
+            "mtable",
+            "mtd",
+            "mtext",
+            "mtr",
+            "munder",
+            "munderover",
+            "semantics",
+            "annotation",
+            "annotation-xml",
+            "tt",
+          ].includes(tag);
+        },
+      },
+    },
+  },
   head: [["link", { rel: "icon", href: "/favicon.jpg" }]],
   themeConfig: {
     logo: "/logo.jpg",

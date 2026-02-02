@@ -10,7 +10,6 @@ mathjax: true
 lastUpdated: 2025-05-28 00:12:47
 ---
 
-
 大一下去修了一門量子計算的課，前面的概念跟線性代數有滿多相似的地方，後半部分才真正開始講量子演算法。
 
 ## 量子計算基礎簡介
@@ -35,8 +34,7 @@ lastUpdated: 2025-05-28 00:12:47
 
 但要找到 $g$ 可以滿足上述條件其實並不容易，事實上真的只能一個一個猜 $g$ 是多少。不過，我們可以將這個隨機猜測的數字 $g$ 轉換成很有可能滿足條件的 $g^{p/2} \pm 1$。
 
-<details>
-<summary>為什麼是 $g^{p/2} \pm 1$ ？</summary>
+::: details 為什麼是 $g^{p/2} \pm 1$ ？
 
 若給定兩個數 $A, B$，且 $\gcd(A, B) = 1$，則存在一個正整數 $p$ 使得 $A^p = m \cdot B + 1$，其中 $m$ 為某個整數（根據歐拉定理）。
 
@@ -67,9 +65,9 @@ $$
 
 因此，$m \cdot B = A^p - 1 = \left(A^{p/2}+1\right)\left(A^{p/2}-1\right)$
 
-</details>
+:::
 
-將機會不大的數字 g 轉換成很有可能的$g^{p/2} \pm 1$，只要找到這樣的$p$就好（$p$要是偶數才能真正拆解喔！）
+將機會不大的數字 g 轉換成很有可能的 $g^{p/2} \pm 1$，只要找到這樣的$p$就好（$p$要是偶數才能真正拆解喔！）
 
 #### Classical
 
@@ -285,17 +283,17 @@ $$
 
 ### Bloch 球 (Bloch Sphere)
 
-Bloch 球用於表示單量子位的狀態：[video](/images/posts/quantum-system/spherical_vs_cartesian_coordinate_systems.mp4)
+Bloch 球用於表示單量子位的狀態：
 
 ![Bloch Sphere](/images/posts/quantum-system/bloch_sphere.png)
 
-<!-- <div align="center">
-
-<video src="/images/posts/quantum-system/spherical_vs_cartesian_coordinate_systems.mp4" width="350" controls autoplay loop muted playsinline>
-  Your browser does not support the video tag.
-</video>
-
-</div> -->
+ <div align="center">
+ 
+ <video src="/images/posts/quantum-system/spherical_vs_cartesian_coordinate_systems.mp4" width="350" controls autoplay loop muted playsinline>
+   Your browser does not support the video tag.
+ </video>
+ 
+ </div>
 
 - $| 0 \rangle \rightarrow (0, 0, 1)$
 - $| 1 \rangle \rightarrow (0, 0, -1)$
@@ -595,14 +593,14 @@ $$
 
 舉個例子：
 
-| $1 \otimes 0 = 1$                                                    | $1 \otimes 1 = 0$                                                    |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| $1 \otimes 0 = 1$                                            | $1 \otimes 1 = 0$                                            |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ![Example 1](/images/posts/quantum-system/cnot_gate_ex1.png) | ![Example 2](/images/posts/quantum-system/cnot_gate_ex2.png) |
 
 這是所有計算中最重要的一個運算門，並且可以延伸出 COPY、NOT 和 SWAP 三種操作：
 
-| COPY                                                                  | NOT                                                                 | SWAP                                                                               |
-| --------------------------------------------------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| COPY                                                          | NOT                                                         | SWAP                                                                       |
+| ------------------------------------------------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------- |
 | ![COPY Gate](/images/posts/quantum-system/cnot_gate_copy.png) | ![NOT Gate](/images/posts/quantum-system/cnot_gate_not.png) | ![SWAP Gate (Using CNOT)](/images/posts/quantum-system/swap_gate_cnot.jpg) |
 
 #### CCNOT (Toffoli Gate)

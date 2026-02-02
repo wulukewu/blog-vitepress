@@ -8,7 +8,6 @@ tags:
 lastUpdated: 2025-07-14 11:57:56
 ---
 
-
 > From [LI2 Contests](https://codeforces.com/group/jtU6D2hVEi) Group
 
 # Contest 09. Prefix sums and countings
@@ -18,7 +17,7 @@ lastUpdated: 2025-07-14 11:57:56
 ## C. Rectangle Sum
 
 > **Problem:** [C. Rectangle Sum](https://codeforces.com/group/jtU6D2hVEi/contest/104997/problem/C)
-> 
+>
 > **Solution:** [GitHub Code](https://github.com/wulukewu/cp-code/blob/main/codeforces/group/jtU6D2hVEi/104997/C_Rectangle_Sum.cpp)
 
 ```cpp
@@ -62,7 +61,7 @@ int main(){
 ## F. Counting Sort
 
 > **Problem:** [F. Counting Sort](https://codeforces.com/group/jtU6D2hVEi/contest/104997/problem/F)
-> 
+>
 > **Solution:** [GitHub Code](https://github.com/wulukewu/cp-code/blob/main/codeforces/group/jtU6D2hVEi/104997/F_Counting_Sort.cpp)
 
 ```cpp
@@ -97,7 +96,7 @@ int main(){
 ## G. Haybale Stacking
 
 > **Problem:** [G. Haybale Stacking](https://codeforces.com/group/jtU6D2hVEi/contest/104997/problem/G)
-> 
+>
 > **Solution:** [GitHub Code](https://github.com/wulukewu/cp-code/blob/main/codeforces/group/jtU6D2hVEi/104997/G_Haybale_Stacking.cpp)
 
 ```cpp
@@ -135,7 +134,7 @@ int main(){
 ## C. Sorting halves
 
 > **Problem:** [C. Sorting halves](https://codeforces.com/group/jtU6D2hVEi/contest/105000/problem/C)
-> 
+>
 > **Solution:** [GitHub Code](https://github.com/wulukewu/cp-code/blob/main/codeforces/group/jtU6D2hVEi/105000/C_Sorting_halves.cpp)
 
 ```cpp
@@ -176,7 +175,7 @@ int main(){
 ## D. Merge Lists
 
 > **Problem:** [D. Merge Lists](https://codeforces.com/group/jtU6D2hVEi/contest/105000/problem/D)
-> 
+>
 > **Solution:** [GitHub Code](https://github.com/wulukewu/cp-code/blob/main/codeforces/group/jtU6D2hVEi/105000/D_Merge_Lists.cpp)
 
 ```cpp
@@ -243,7 +242,7 @@ int main(){
 ## F. Sorting. Stone method.
 
 > **Problem:** [F. Sorting. Stone method.](https://codeforces.com/group/jtU6D2hVEi/contest/105000/problem/F)
-> 
+>
 > **Solution:** [GitHub Code](https://github.com/wulukewu/cp-code/blob/main/codeforces/group/jtU6D2hVEi/105000/F_Sorting_Stone_method.cpp)
 
 ```cpp
@@ -288,7 +287,7 @@ int main(){
 ## K. Olympiad Results
 
 > **Problem:** [K. Olympiad Results](https://codeforces.com/group/jtU6D2hVEi/contest/105000/problem/K)
-> 
+>
 > **Solution:** [GitHub Code](https://github.com/wulukewu/cp-code/blob/main/codeforces/group/jtU6D2hVEi/105000/K_Olympiad_Results.cpp)
 
 ```cpp
