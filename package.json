@@ -1,0 +1,25 @@
+{
+  "name": "blog-vitepress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "sass-embedded": "^1.97.3",
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.27"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
+    "@sugarat/theme": "^0.5.14",
+    "element-plus": "^2.13.2"
+  }
+}
