@@ -24,6 +24,9 @@ const blogTheme = getThemeConfig({
       tag: "Tags",
     },
   },
+  homeTags: {
+    title: "Tags",
+  },
   recommend: {
     title: "Recommended",
     nextText: "Next",
