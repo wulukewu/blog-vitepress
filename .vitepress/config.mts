@@ -37,6 +37,7 @@ const blogTheme = getThemeConfig({
     title: "Friends",
     list: [],
   },
+  timeline: true,
   hotArticle: {
     title: "Hot Posts",
     nextText: "Next",
@@ -123,6 +124,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "Home", link: "/" },
+      { text: "Timeline", link: "/timeline" },
       {
         text: "Algorithm",
         link: "/docs/algorithm/codeforces-algo-master/week-01",
@@ -231,8 +233,9 @@ export default defineConfig({
       ],
     },
 
-    socialLinks: [
-      { icon: "github", link: "https://github.com/vuejs/vitepress" },
-    ],
+    socialLinks: [{ icon: "github", link: "https://github.com/wulukewu" }],
+    search: {
+      provider: "local",
+    },
   },
 });

@@ -1,4 +1,12 @@
 import BlogTheme from "@sugarat/theme";
 import "./style.css";
 
-export default BlogTheme;
+import Timeline from "./components/Timeline.vue";
+
+export default {
+  ...BlogTheme,
+  enhanceApp(ctx) {
+    BlogTheme.enhanceApp(ctx);
+    ctx.app.component("Timeline", Timeline);
+  },
+};
