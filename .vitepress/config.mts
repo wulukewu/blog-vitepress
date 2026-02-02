@@ -64,18 +64,113 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "Home", link: "/" },
-      { text: "Examples", link: "/markdown-examples" },
+      {
+        text: "Algorithm",
+        link: "/docs/algorithm/codeforces-algo-master/week-01",
+      },
+      { text: "DevOps", link: "/docs/devops/docker-ubuntu-ssh-setup" },
+      { text: "Science", link: "/docs/science/quantum-system" },
+      { text: "Frontend", link: "/docs/frontend/vue-basic-syntax" },
     ],
 
-    sidebar: [
-      {
-        text: "Examples",
-        items: [
-          { text: "Markdown Examples", link: "/markdown-examples" },
-          { text: "Runtime API Examples", link: "/api-examples" },
-        ],
-      },
-    ],
+    sidebar: {
+      "/docs/algorithm/": [
+        {
+          text: "Algorithm",
+          items: [
+            {
+              text: "Week 01",
+              link: "/docs/algorithm/codeforces-algo-master/week-01",
+            },
+            {
+              text: "Week 02",
+              link: "/docs/algorithm/codeforces-algo-master/week-02",
+            },
+            {
+              text: "Week 03",
+              link: "/docs/algorithm/codeforces-algo-master/week-03",
+            },
+            {
+              text: "Week 04",
+              link: "/docs/algorithm/codeforces-algo-master/week-04",
+            },
+            {
+              text: "Week 05",
+              link: "/docs/algorithm/codeforces-algo-master/week-05",
+            },
+            {
+              text: "Week 05 (LZR)",
+              link: "/docs/algorithm/codeforces-algo-master/week-05-lzr",
+            },
+            {
+              text: "Week 06",
+              link: "/docs/algorithm/codeforces-algo-master/week-06",
+            },
+            {
+              text: "Week 06 (LZR)",
+              link: "/docs/algorithm/codeforces-algo-master/week-06-lzr",
+            },
+            {
+              text: "Week 07",
+              link: "/docs/algorithm/codeforces-algo-master/week-07",
+            },
+            {
+              text: "Week 07 (LZR)",
+              link: "/docs/algorithm/codeforces-algo-master/week-07-lzr",
+            },
+            {
+              text: "Week 08 (LZR)",
+              link: "/docs/algorithm/codeforces-algo-master/week-08-lzr",
+            },
+            {
+              text: "Week 09 (LZR)",
+              link: "/docs/algorithm/codeforces-algo-master/week-09-lzr",
+            },
+            {
+              text: "Week 10 (LZR)",
+              link: "/docs/algorithm/codeforces-algo-master/week-10-lzr",
+            },
+            {
+              text: "Week 11 (LZR)",
+              link: "/docs/algorithm/codeforces-algo-master/week-11-lzr",
+            },
+            { text: "TOPC 2025 (LZR)", link: "/docs/algorithm/topc-2025-lzr" },
+          ],
+        },
+      ],
+      "/docs/devops/": [
+        {
+          text: "DevOps",
+          items: [
+            {
+              text: "Docker Ubuntu SSH",
+              link: "/docs/devops/docker-ubuntu-ssh-setup",
+            },
+            { text: "GitHub SSH Key", link: "/docs/devops/github-ssh-key" },
+            { text: "Bits Std on Mac", link: "/docs/devops/bits-std-on-mac" },
+          ],
+        },
+      ],
+      "/docs/science/": [
+        {
+          text: "Science",
+          items: [
+            { text: "Quantum System", link: "/docs/science/quantum-system" },
+          ],
+        },
+      ],
+      "/docs/frontend/": [
+        {
+          text: "Frontend",
+          items: [
+            {
+              text: "Vue Basic Syntax",
+              link: "/docs/frontend/vue-basic-syntax",
+            },
+          ],
+        },
+      ],
+    },
 
     socialLinks: [
       { icon: "github", link: "https://github.com/vuejs/vitepress" },
