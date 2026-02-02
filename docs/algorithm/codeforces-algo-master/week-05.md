@@ -8,7 +8,6 @@ tags:
 lastUpdated: 2025-08-04 15:55:06
 ---
 
-
 > From [LI2 Contests](https://codeforces.com/group/jtU6D2hVEi) Group
 
 # Contest 19. Dynamic Programming
@@ -121,7 +120,6 @@ void solve() {
 > **Solution:** [GitHub Code](https://github.com/wulukewu/cp-code/blob/main/codeforces/group/jtU6D2hVEi/533280/I_Levenshtein_Distance.cpp)
 
 - 兩個字串由後往前找 `(i, j)` ：
-
   1. 如果 `s1[i]==s2[j]`: 則可以視 `(i+1, j+1)` 為相同的答案
   2. 如果不一樣，那麼就找以下三種作法的最小值+1：
      1. Replace: `(i+1, j+1)`
@@ -131,7 +129,7 @@ void solve() {
 - 初始化最後一排及最後一列，此狀態問題為字串`s1`/`s2`與空字串的差，即為字串`s1`/`s2`的長度，因此遞減為`0`
 - 可以參考[這支影片](https://youtu.be/XYi2-LPrwm4)
 
-![Levenshtein Distance](/images/posts/codeforces-algo-master-week-05/levenshtein-distance.png)
+![Levenshtein Distance](/images/codeforces-algo-master-week-05/levenshtein-distance.png)
 
 ```cpp
 void solve() {

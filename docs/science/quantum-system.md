@@ -109,7 +109,7 @@ $$
 
 這個「週期性」就是 Shor's Algorithm 能有效率分解質因數的關鍵。只要能找到這個週期 $p$，就能透過 Quantum Fourier Transform（量子傅立葉變換）進一步拆解 $N$。
 
-![quantum fourier transform](/images/posts/quantum-system/quantum_fourier_transform.png)
+![quantum fourier transform](/images/quantum-system/quantum_fourier_transform.png)
 
 ---
 
@@ -121,7 +121,7 @@ $$
 
 這表示，當量子位元處於疊加態時，經過適當設計的量子閘後，所有 $x$ 對應的 $g^x \bmod N$ 都會同時存在於量子態中。
 
-![quantum shor process](/images/posts/quantum-system/quantum_shor_process.png)
+![quantum shor process](/images/quantum-system/quantum_shor_process.png)
 
 從這些餘數當中，任取一個 $r$，可以經由適當的轉換，將其餘的 $x$ 都變成 $0$。最後透過 Fourier Transform 找出的 $g = x$ 和 $p$，就可以利用前面提過的傳統方式，判斷 $g^{p/2} \pm 1$ 是否與 $N$ 有公因數，將 $N$ 拆解開來。
 
@@ -245,7 +245,7 @@ $$
 
 在 $| \psi \rangle = \sum_i \alpha_i | e_i \rangle$ 當中，$| e_i \rangle$ 出現的機率取決於 $| \alpha_i |^2$，而此時的觀測是**不可逆**的。當測量完成後，量子態會崩塌到對應的基底態 $| e_i \rangle$，並且無法回復到原本的疊加態。因此**測量過程不可逆，且量子態的疊加性在測量後不復存在**。
 
-![Quantum Measurement Single](/images/posts/quantum-system/quantum_measurement_single.gif)
+![Quantum Measurement Single](/images/quantum-system/quantum_measurement_single.gif)
 
 #### 範例
 
@@ -285,11 +285,11 @@ $$
 
 Bloch 球用於表示單量子位的狀態：
 
-![Bloch Sphere](/images/posts/quantum-system/bloch_sphere.png)
+![Bloch Sphere](/images/quantum-system/bloch_sphere.png)
 
  <div align="center">
  
- <video src="/images/posts/quantum-system/spherical_vs_cartesian_coordinate_systems.mp4" width="350" controls autoplay loop muted playsinline>
+ <video src="/images/quantum-system/spherical_vs_cartesian_coordinate_systems.mp4" width="350" controls autoplay loop muted playsinline>
    Your browser does not support the video tag.
  </video>
  
@@ -556,14 +556,14 @@ $$
 | 00 \rangle + | 11 \rangle = | 0 \rangle _1 \otimes | 0 \rangle _0 + | 1 \rangle _1 \otimes | 1 \rangle _0
 $$
 
-![Entangled Measurement](/images/posts/quantum-system/entangled_measurement.png)
+![Entangled Measurement](/images/quantum-system/entangled_measurement.png)
 
 此時去做量子測量：
 
 - 第 1 個質點測量到 $| 0 \rangle$，則第 0 個質點就確定為 $| 0 \rangle$
 - 第 1 個質點測量到 $| 1 \rangle$，則第 0 個質點就確定為 $| 1 \rangle$
 
-![Quantum Measurement Multiple](/images/posts/quantum-system/quantum_measurement_multiple.gif)
+![Quantum Measurement Multiple](/images/quantum-system/quantum_measurement_multiple.gif)
 
 ### 逆向計算 (Reverse Computation)
 
@@ -571,7 +571,7 @@ $$
 
 CNOT 門的運作如下：
 
-![CNOT Gate](/images/posts/quantum-system/cnot_gate.png)
+![CNOT Gate](/images/quantum-system/cnot_gate.png)
 
 $$
 \text{CNOT} = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{pmatrix} = \begin{pmatrix} I & O \\ O & X \end{pmatrix}
@@ -593,28 +593,28 @@ $$
 
 舉個例子：
 
-| $1 \otimes 0 = 1$                                            | $1 \otimes 1 = 0$                                            |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![Example 1](/images/posts/quantum-system/cnot_gate_ex1.png) | ![Example 2](/images/posts/quantum-system/cnot_gate_ex2.png) |
+| $1 \otimes 0 = 1$                                      | $1 \otimes 1 = 0$                                      |
+| ------------------------------------------------------ | ------------------------------------------------------ |
+| ![Example 1](/images/quantum-system/cnot_gate_ex1.png) | ![Example 2](/images/quantum-system/cnot_gate_ex2.png) |
 
 這是所有計算中最重要的一個運算門，並且可以延伸出 COPY、NOT 和 SWAP 三種操作：
 
-| COPY                                                          | NOT                                                         | SWAP                                                                       |
-| ------------------------------------------------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------- |
-| ![COPY Gate](/images/posts/quantum-system/cnot_gate_copy.png) | ![NOT Gate](/images/posts/quantum-system/cnot_gate_not.png) | ![SWAP Gate (Using CNOT)](/images/posts/quantum-system/swap_gate_cnot.jpg) |
+| COPY                                                    | NOT                                                   | SWAP                                                                 |
+| ------------------------------------------------------- | ----------------------------------------------------- | -------------------------------------------------------------------- |
+| ![COPY Gate](/images/quantum-system/cnot_gate_copy.png) | ![NOT Gate](/images/quantum-system/cnot_gate_not.png) | ![SWAP Gate (Using CNOT)](/images/quantum-system/swap_gate_cnot.jpg) |
 
 #### CCNOT (Toffoli Gate)
 
 CCNOT 門的運作如下：
 
-![CCNOT Gate](/images/posts/quantum-system/ccnot_gate.png)
+![CCNOT Gate](/images/quantum-system/ccnot_gate.png)
 
 - $a=0, b=0 \implies ab=0 \implies | c \oplus ab \rangle = | c \oplus 0 \rangle = | c \rangle$
 - $a=1, b=1 \implies ab=1 \implies | c \oplus ab \rangle = | c \oplus 1 \rangle = | \overline{c} \rangle$
 
 **CCNOT 性質**：
 
-![CCNOT Reversibility](/images/posts/quantum-system/ccnot_gate_reversibility.png)
+![CCNOT Reversibility](/images/quantum-system/ccnot_gate_reversibility.png)
 
 $$
 \text{CCNOT} \cdot \text{CCNOT} = I
@@ -634,37 +634,37 @@ $$
 
 AND 的運作如下：
 
-![AND Gate](/images/posts/quantum-system/and_gate.png)
+![AND Gate](/images/quantum-system/and_gate.png)
 
 #### XOR
 
 XOR 的運作如下：
 
-![XOR Gate](/images/posts/quantum-system/xor_gate.png)
+![XOR Gate](/images/quantum-system/xor_gate.png)
 
 #### NAND (NOT AND)
 
 NAND 的運作如下：
 
-![NAND Gate](/images/posts/quantum-system/nand_gate.png)
+![NAND Gate](/images/quantum-system/nand_gate.png)
 
 #### NOT
 
 NOT 也可以用 CNOT 的形式來表示：
 
-![NOT Gate](/images/posts/quantum-system/not_gate.png)
+![NOT Gate](/images/quantum-system/not_gate.png)
 
 #### OR
 
 OR 的運作如下：
 
-![OR Gate](/images/posts/quantum-system/or_gate.png)
+![OR Gate](/images/quantum-system/or_gate.png)
 
 ##### 範例
 
 以下是量子電路的等價性：
 
-![Quantum Circuit Equivalence](/images/posts/quantum-system/quantum_circuit_equivalence.png)
+![Quantum Circuit Equivalence](/images/quantum-system/quantum_circuit_equivalence.png)
 
 ---
 
