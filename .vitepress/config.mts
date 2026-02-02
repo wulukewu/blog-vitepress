@@ -57,7 +57,7 @@ export default defineConfig({
   extends: blogTheme,
   title: "Luke's Blog",
   description: "Hi, I'm Luke!",
-  head: [["link", { rel: "icon", href: "/logo.jpg" }]],
+  head: [["link", { rel: "icon", href: "/favicon.jpg" }]],
   themeConfig: {
     logo: "/logo.jpg",
     // https://vitepress.dev/reference/default-theme-config
