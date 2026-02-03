@@ -9,9 +9,9 @@ hero:
 
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: About Me
+      link: /about/
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Browse Posts
+      link: /timeline
 ---
