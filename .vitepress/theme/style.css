@@ -1,51 +1,63 @@
 :root {
-  /* Tech Style Palette */
-  --vp-c-brand-1: #ffd700; /* Electric Yellow (Primary) */
-  --vp-c-brand-2: #e6c200; /* Darker Yellow (Hover) */
-  --vp-c-brand-3: #cca300; /* Even Darker Yellow (Active) */
-  --vp-c-brand-soft: rgba(255, 215, 0, 0.16);
+  /* 
+    Professional Magazine/Blog Palette 
+    Style: Swiss Modernism 2.0 + Glassmorphism
+  */
 
-  --vp-c-accent: #00f2ff; /* Neon Cyan (Accent) */
+  /* Primary Brand - Professional Blue */
+  --vp-c-brand-1: #3b82f6;
+  --vp-c-brand-2: #2563eb; /* Darker interaction state */
+  --vp-c-brand-3: #1d4ed8; /* Even darker active state */
+  --vp-c-brand-soft: rgba(59, 130, 246, 0.14);
 
-  --vp-c-bg: #0a0a12;
-  --vp-c-bg-alt: #0f0f1a;
-  --vp-c-bg-soft: #151520;
+  /* Secondary Accents */
+  --vp-c-accent: #60a5fa; /* Light Blue */
+  --vp-c-cta: #f97316; /* Vibrant Orange for calls to action */
+  --vp-c-cta-hover: #ea580c;
 
-  --vp-font-family-base: "Outfit", sans-serif;
+  /* Backgrounds - Deep Slate Theme */
+  --vp-c-bg: #0f172a; /* Slate-900 */
+  --vp-c-bg-alt: #1e293b; /* Slate-800 */
+  --vp-c-bg-soft: #334155; /* Slate-700 */
+
+  /* Text Colors */
+  --vp-c-text-1: #f8fafc; /* Slate-50 */
+  --vp-c-text-2: #cbd5e1; /* Slate-300 */
+  --vp-c-text-3: #94a3b8; /* Slate-400 */
+
+  /* Borders & Dividers */
+  --vp-c-divider: rgba(148, 163, 184, 0.12);
+  --vp-c-gutter: rgba(148, 163, 184, 0.12);
+
+  /* Typography System */
+  --vp-font-family-base: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --vp-font-family-mono: "JetBrains Mono", monospace;
-
-  /* Overrides for text colors on dark background */
-  --vp-c-text-1: rgba(255, 255, 255, 0.92);
-  --vp-c-text-2: rgba(255, 255, 255, 0.7);
-  --vp-c-text-3: rgba(255, 255, 255, 0.45);
+  --vp-font-family-heading: "Space Grotesk", sans-serif;
 }
 
 html {
   background-color: var(--vp-c-bg);
+  /* Refined, subtle atmospheric background */
   background-image:
-    /* Top Right - Hero Ambience (Cyan/Purple) */
+    /* Top Right - Blue Ambience */
     radial-gradient(
-      circle at 80% 10%,
-      rgba(0, 242, 255, 0.15),
-      transparent 40%
+      circle at 85% 5%,
+      rgba(59, 130, 246, 0.15),
+      transparent 45%
     ),
-    /* CENTER - Top of Posts/Features (Yellow/Orange) - The "Moved" Blob */
-    radial-gradient(circle at 50% 60vh, rgba(255, 215, 0, 0.2), transparent 40%),
-    /* Bottom Left - Depth (Purple) */
+    /* Bottom Left - Purple Depth */
     radial-gradient(
-        circle at 10% 90%,
-        rgba(189, 52, 254, 0.15),
-        transparent 40%
-      );
+        circle at 0% 100%,
+        rgba(124, 58, 237, 0.12),
+        transparent 50%
+      ),
+    /* Center/Top-Left Accent - Cyan hint */
+    radial-gradient(circle at 20% 20%, rgba(6, 182, 212, 0.08), transparent 40%);
   background-attachment: fixed;
-}
-html.dark {
-  /* Ensure these apply in dark mode correctly if vitepress toggle is used, 
-       though purely dark theme implies we force these values. */
-  --vp-c-bg: #0a0a12;
+  scroll-behavior: smooth;
 }
 
-/* Typography / Font application */
+/* Typography Application */
 h1,
 h2,
 h3,
@@ -54,102 +66,187 @@ h5,
 h6,
 .title,
 .VPNavBarTitle {
-  font-family: var(--vp-font-family-mono);
-  letter-spacing: -0.02em;
+  font-family: var(--vp-font-family-heading);
+  letter-spacing: -0.025em;
+  font-weight: 600;
 }
 
-/* Button Styling */
+.vp-doc p,
+.vp-doc li {
+  line-height: 1.75; /* Improved readability */
+  font-family: var(--vp-font-family-base);
+}
+
+/* 
+  ---------------------------
+  COMPONENT STYLING
+  ---------------------------
+*/
+
+/* Navbar Glassmorphism - Premium Feel */
+.VPNavBar {
+  background-color: rgba(15, 23, 42, 0.75) !important;
+  backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Buttons */
 .VPButton.brand {
   background-color: var(--vp-c-brand-1);
-  color: #000; /* Contrast for yellow */
-  border-radius: 4px; /* More angular/tech feel */
-  font-family: var(--vp-font-family-mono);
-  font-weight: 700;
-  border: 1px solid var(--vp-c-brand-1);
+  color: #fff;
+  border-radius: 8px; /* Modern rounded corners */
+  font-family: var(--vp-font-family-heading);
+  font-weight: 600;
+  border: 1px solid transparent; /* Prepare for border transition */
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+  overflow: hidden;
+  position: relative;
+}
+
+.VPButton.brand:hover {
+  background-color: var(--vp-c-brand-2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
+}
+
+.VPButton.alt {
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  color: var(--vp-c-text-1);
   transition: all 0.2s ease;
 }
-.VPButton.brand:hover {
-  background-color: transparent;
-  color: var(--vp-c-brand-1);
-  box-shadow: 0 0 15px var(--vp-c-brand-soft);
-  text-shadow: 0 0 8px var(--vp-c-brand-1);
-  transform: translateY(-1px);
+
+.VPButton.alt:hover {
+  border-color: var(--vp-c-brand-1);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* 
+  ---------------------------
+  CARDS & SURFACES 
+  ---------------------------
+*/
+
+/* Unified Glassmorphism for Cards */
+.VPFeature,
+.vp-doc .custom-block,
+.article-item,
+.el-card,
+.sidebar-content,
+.ui-card {
+  background-color: rgba(30, 41, 59, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Hover Effects for Interactive Cards */
+.VPFeature:hover,
+.article-item:hover,
+.el-card:hover {
+  transform: translateY(-4px); /* Lift effect */
+  border-color: rgba(59, 130, 246, 0.5) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  background-color: rgba(30, 41, 59, 0.6) !important;
+}
+
+/* Feature Titles */
+.VPFeature .title {
+  color: var(--vp-c-text-1);
+  font-family: var(--vp-font-family-heading);
+}
+
+.VPFeature .details {
+  color: var(--vp-c-text-3);
+  font-family: var(--vp-font-family-base);
+}
+
+/* 
+  ---------------------------
+  HOME HERO SECTION
+  ---------------------------
+*/
+
+:root {
+  /* Gradient text for the main hero title */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(
+    120deg,
+    var(--vp-c-brand-1) 10%,
+    var(--vp-c-accent) 60%,
+    white 90%
+  );
+
+  /* Subtle glow behind the hero image */
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    var(--vp-c-brand-1) 30%,
+    #7c3aed 70%
+  );
+  --vp-home-hero-image-filter: blur(80px);
+}
+
+.VPHomeHero .name {
+  font-family: var(--vp-font-family-heading);
+  letter-spacing: -0.04em; /* Tighter heading */
+  font-weight: 700;
+}
+
+.VPHomeHero .text {
+  color: var(--vp-c-text-2);
+  font-family: var(--vp-font-family-base);
+  font-size: 1.25rem;
+}
+
+.VPHomeHero .tagline {
+  color: var(--vp-c-text-3);
+  font-family: var(--vp-font-family-base);
+}
+
+/* 
+  ---------------------------
+  UTILITIES & POLISH
+  ---------------------------
+*/
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 5px;
+  border: 2px solid var(--vp-c-bg); /* Padding effect */
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+/* Selection */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: white;
 }
 
 /* Code Blocks */
 .vp-doc pre,
 .vp-doc code {
   font-family: var(--vp-font-family-mono);
-}
-
-/* Navbar Glassmorphism */
-.VPNavBar {
-  background-color: rgba(10, 10, 18, 0.6) !important;
-  backdrop-filter: blur(16px) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--vp-c-bg);
-}
-::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--vp-c-brand-1);
-}
-
-/* Selection */
-::selection {
-  background: var(--vp-c-brand-soft);
-  color: var(--vp-c-brand-1);
-}
-
-/* Home Hero Customization */
-:root {
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(
-    135deg,
-    var(--vp-c-brand-1) 30%,
-    var(--vp-c-accent)
-  );
-
-  --vp-home-hero-image-background-image: linear-gradient(
-    -45deg,
-    #bd34fe 30%,
-    /* Restore purple "fun" */ var(--vp-c-brand-1) 60%,
-    var(--vp-c-accent) 90%
-  );
-  --vp-home-hero-image-filter: blur(60px); /* Stronger blur */
-}
-
-/* Feature Cards "Tech" Look */
-.VPFeature,
-.vp-doc,
-.article-item,
-.el-card,
-.sidebar-content {
-  /* Glassmorphism for ALL cards */
-  background-color: rgba(20, 20, 25, 0.4) !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  backdrop-filter: blur(10px);
-  transition:
-    transform 0.2s,
-    border-color 0.2s;
-}
-.VPFeature:hover,
-.article-item:hover,
-.el-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--vp-c-brand-1) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  background-color: rgba(30, 30, 40, 0.6) !important;
+  font-size: 0.9em;
+  background-color: rgba(15, 23, 42, 0.6); /* Darker code background */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
 }
 
 /* Ensure body/app doesn't block html background */
@@ -158,16 +255,21 @@ body,
   background-color: transparent !important;
 }
 
-/* Move posts (Features/Content) down from the big text (Hero) */
+/* Improved spacing for content */
 .VPHome .VPFeatures,
 .home-content {
-  margin-top: 100px !important; /* Significant spacing */
-  padding-top: 20px !important;
+  margin-top: 6rem !important;
 }
 
-/* Specific fix for Sugarat theme article cards if they use typical opaque styling */
-.ui-card {
-  background-color: rgba(20, 20, 25, 0.4) !important;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+/* Sidebar Customization */
+.VPSidebar {
+  background-color: rgba(15, 23, 42, 0.6) !important;
+  backdrop-filter: blur(12px);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Mobile Nav */
+.VPLocalNav {
+  background-color: rgba(15, 23, 42, 0.8) !important;
+  backdrop-filter: blur(12px);
 }
