@@ -278,3 +278,23 @@ body,
   background-color: rgba(15, 23, 42, 0.8) !important;
   backdrop-filter: blur(12px);
 }
+
+/* 
+  ---------------------------
+  HOME LAYOUT REORDER
+  ---------------------------
+*/
+.VPHome {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.VPHero,
+.VPHomeHero {
+  order: -1 !important;
+  margin-top: 80px !important; /* Adjusted spacing */
+}
+
+.home {
+  order: 1 !important;
+}
