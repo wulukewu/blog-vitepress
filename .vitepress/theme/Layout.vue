@@ -4,6 +4,7 @@ import BlogTheme from "@sugarat/theme";
 
 const { Layout } = BlogTheme;
 const { frontmatter } = useData();
+import GiscusComment from "./components/GiscusComment.vue";
 </script>
 
 <template>
@@ -12,6 +13,9 @@ const { frontmatter } = useData();
       <h1 v-if="frontmatter.title" class="page-title">
         {{ frontmatter.title }}
       </h1>
+    </template>
+    <template #doc-after>
+      <GiscusComment />
     </template>
   </Layout>
 </template>
