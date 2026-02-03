@@ -51,6 +51,14 @@ const blogTheme = getThemeConfig({
     daysAgo: " days ago",
     weeksAgo: " weeks ago",
   },
+  comment: {
+    repo: "wulukewu/blog-vitepress",
+    repoId: "R_kgDORGyibA",
+    category: "General",
+    categoryId: "DIC_kwDORGyibM4C11GB",
+    label: "Comments",
+    lang: "en",
+  },
 });
 
 // https://vitepress.dev/reference/site-config
