@@ -3,6 +3,7 @@ import "./style.css";
 import Layout from "./Layout.vue";
 
 import Timeline from "./components/Timeline.vue";
+import Typewriter from "./components/Typewriter.vue";
 
 export default {
   ...BlogTheme,
@@ -10,5 +11,6 @@ export default {
   enhanceApp(ctx) {
     BlogTheme.enhanceApp(ctx);
     ctx.app.component("Timeline", Timeline);
+    ctx.app.component("Typewriter", Typewriter);
   },
 };

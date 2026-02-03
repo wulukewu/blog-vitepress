@@ -4,8 +4,9 @@ layout: home
 
 hero:
   name: "Luke's Blog"
-  text: "Hi, I'm Luke!"
-  tagline: My great project tagline
+  text: ""
+  tagline: <Typewriter :strings="['Hi, I\'m Luke!', 'I love coding.', 'Welcome to my blog!']" :loop="true" />
+
   actions:
     - theme: brand
       text: Markdown Examples
@@ -22,4 +23,3 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-
