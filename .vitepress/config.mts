@@ -171,4 +171,11 @@ export default defineConfig({
       provider: "local",
     },
   },
+  vite: {
+    server: {
+      watch: {
+        ignored: ["**/.vitepress/.temp/**"],
+      },
+    },
+  },
 });
