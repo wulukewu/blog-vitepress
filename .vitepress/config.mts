@@ -118,7 +118,21 @@ export default defineConfig({
       },
     },
   },
-  head: [["link", { rel: "icon", href: "/favicon.jpg" }]],
+  head: [
+    ["link", { rel: "icon", href: "/favicon.jpg" }],
+    ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
+    [
+      "link",
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
+    ],
+    [
+      "link",
+      {
+        href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;700&display=swap",
+        rel: "stylesheet",
+      },
+    ],
+  ],
   themeConfig: {
     logo: "/logo.jpg",
     // https://vitepress.dev/reference/default-theme-config
