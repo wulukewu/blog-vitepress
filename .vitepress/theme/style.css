@@ -1,20 +1,63 @@
 :root {
   /* 
-    Professional Magazine/Blog Palette 
+    Professional Magazine/Blog Palette - Light Mode
     Style: Swiss Modernism 2.0 + Glassmorphism
   */
 
-  /* Primary Brand - Professional Blue */
+  /* Primary Brand */
   --vp-c-brand-1: #3b82f6;
-  --vp-c-brand-2: #2563eb; /* Darker interaction state */
-  --vp-c-brand-3: #1d4ed8; /* Even darker active state */
-  --vp-c-brand-soft: rgba(59, 130, 246, 0.14);
+  --vp-c-brand-2: #2563eb;
+  --vp-c-brand-3: #1d4ed8;
+  --vp-c-brand-soft: rgba(59, 130, 246, 0.1);
 
   /* Secondary Accents */
-  --vp-c-accent: #60a5fa; /* Light Blue */
-  --vp-c-cta: #f97316; /* Vibrant Orange for calls to action */
+  --vp-c-accent: #60a5fa;
+  --vp-c-cta: #f97316;
   --vp-c-cta-hover: #ea580c;
 
+  /* Backgrounds - Clean Paper Theme */
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #f8fafc; /* Slate-50 */
+  --vp-c-bg-soft: #f1f5f9; /* Slate-100 */
+
+  /* Text Colors */
+  --vp-c-text-1: #0f172a; /* Slate-900 */
+  --vp-c-text-2: #334155; /* Slate-700 */
+  --vp-c-text-3: #64748b; /* Slate-500 */
+
+  /* Borders & Dividers */
+  --vp-c-divider: rgba(148, 163, 184, 0.2);
+  --vp-c-gutter: rgba(148, 163, 184, 0.2);
+
+  /* Glass Effects */
+  --vp-glass-bg: rgba(255, 255, 255, 0.7);
+  --vp-glass-border: rgba(0, 0, 0, 0.05);
+  --vp-glass-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+
+  /* Typography System */
+  --vp-font-family-base: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --vp-font-family-mono: "JetBrains Mono", monospace;
+  --vp-font-family-heading: "Space Grotesk", sans-serif;
+
+  /* Hero Variables */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(
+    120deg,
+    var(--vp-c-brand-1) 10%,
+    var(--vp-c-accent) 60%,
+    #1e293b 90%
+  );
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    var(--vp-c-brand-1) 30%,
+    var(--vp-c-accent) 70%
+  );
+  --vp-home-hero-image-filter: blur(128px);
+}
+
+/* Dark Mode Overrides */
+.dark {
   /* Backgrounds - Deep Slate Theme */
   --vp-c-bg: #0f172a; /* Slate-900 */
   --vp-c-bg-alt: #1e293b; /* Slate-800 */
@@ -25,14 +68,22 @@
   --vp-c-text-2: #cbd5e1; /* Slate-300 */
   --vp-c-text-3: #94a3b8; /* Slate-400 */
 
-  /* Borders & Dividers */
+  /* Borders */
   --vp-c-divider: rgba(148, 163, 184, 0.12);
   --vp-c-gutter: rgba(148, 163, 184, 0.12);
 
-  /* Typography System */
-  --vp-font-family-base: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --vp-font-family-mono: "JetBrains Mono", monospace;
-  --vp-font-family-heading: "Space Grotesk", sans-serif;
+  /* Glass Effects */
+  --vp-glass-bg: rgba(30, 41, 59, 0.4);
+  --vp-glass-border: rgba(255, 255, 255, 0.06);
+  --vp-glass-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+
+  /* Hero Variables Dark */
+  --vp-home-hero-name-background: linear-gradient(
+    120deg,
+    var(--vp-c-brand-1) 10%,
+    var(--vp-c-accent) 60%,
+    white 90%
+  );
 }
 
 html {
@@ -69,12 +120,14 @@ h6,
   font-family: var(--vp-font-family-heading);
   letter-spacing: -0.025em;
   font-weight: 600;
+  color: var(--vp-c-text-1);
 }
 
 .vp-doc p,
 .vp-doc li {
   line-height: 1.75; /* Improved readability */
   font-family: var(--vp-font-family-base);
+  color: var(--vp-c-text-2);
 }
 
 /* Add spacing between metadata and content */
@@ -90,9 +143,9 @@ h6,
 
 /* Navbar Glassmorphism - Premium Feel */
 .VPNavBar {
-  background-color: rgba(15, 23, 42, 0.75) !important;
+  background-color: var(--vp-glass-bg) !important;
   backdrop-filter: blur(16px) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--vp-glass-border);
 }
 
 /* Buttons */
@@ -117,8 +170,8 @@ h6,
 
 .VPButton.alt {
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--vp-c-divider);
+  background-color: var(--vp-c-bg-soft);
   backdrop-filter: blur(4px);
   color: var(--vp-c-text-1);
   transition: all 0.2s ease;
@@ -126,7 +179,7 @@ h6,
 
 .VPButton.alt:hover {
   border-color: var(--vp-c-brand-1);
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: var(--vp-glass-bg);
 }
 
 /* 
@@ -142,10 +195,11 @@ h6,
 .el-card,
 .sidebar-content,
 .ui-card {
-  background-color: rgba(30, 41, 59, 0.4) !important;
-  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  background-color: var(--vp-glass-bg) !important;
+  border: 1px solid var(--vp-glass-border) !important;
   backdrop-filter: blur(12px);
   border-radius: 12px;
+  box-shadow: var(--vp-glass-shadow);
   transition:
     transform 0.3s ease,
     border-color 0.3s ease,
@@ -158,6 +212,11 @@ h6,
 .el-card:hover {
   transform: translateY(-4px); /* Lift effect */
   border-color: rgba(59, 130, 246, 0.5) !important;
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.15); /* Softer blue shadow for light mode too */
+}
+.dark .VPFeature:hover,
+.dark .article-item:hover,
+.dark .el-card:hover {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
   background-color: rgba(30, 41, 59, 0.6) !important;
 }
@@ -179,29 +238,14 @@ h6,
   ---------------------------
 */
 
-:root {
-  /* Gradient text for the main hero title */
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(
-    120deg,
-    var(--vp-c-brand-1) 10%,
-    var(--vp-c-accent) 60%,
-    white 90%
-  );
-
-  /* Subtle glow behind the hero image */
-  --vp-home-hero-image-background-image: linear-gradient(
-    -45deg,
-    var(--vp-c-brand-1) 30%,
-    var(--vp-c-accent) 70%
-  );
-  --vp-home-hero-image-filter: blur(128px);
-}
-
 .VPHomeHero .name {
   font-family: var(--vp-font-family-heading);
   letter-spacing: -0.04em; /* Tighter heading */
   font-weight: 700;
+  background: var(--vp-home-hero-name-background);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: var(--vp-home-hero-name-color);
 }
 
 .VPHomeHero .text {
@@ -241,7 +285,7 @@ h6,
 /* Selection */
 ::selection {
   background: rgba(59, 130, 246, 0.3);
-  color: white;
+  color: var(--vp-c-text-1);
 }
 
 /* Code Blocks */
@@ -249,9 +293,16 @@ h6,
 .vp-doc code {
   font-family: var(--vp-font-family-mono);
   font-size: 0.9em;
-  background-color: rgba(15, 23, 42, 0.6); /* Darker code background */
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: var(--vp-c-bg-alt); /* Light mode code bg */
+  border: 1px solid var(--vp-c-divider);
   border-radius: 6px;
+  color: var(--vp-c-text-2);
+}
+.dark .vp-doc pre,
+.dark .vp-doc code {
+  background-color: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--vp-c-text-2);
 }
 
 /* Ensure body/app doesn't block html background */
@@ -268,14 +319,14 @@ body,
 
 /* Sidebar Customization */
 .VPSidebar {
-  background-color: rgba(15, 23, 42, 0.6) !important;
+  background-color: var(--vp-glass-bg) !important;
   backdrop-filter: blur(12px);
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  border-right: 1px solid var(--vp-glass-border);
 }
 
 /* Mobile Nav */
 .VPLocalNav {
-  background-color: rgba(15, 23, 42, 0.8) !important;
+  background-color: var(--vp-glass-bg) !important;
   backdrop-filter: blur(12px);
 }
 
