@@ -51,6 +51,11 @@ const blogTheme = getThemeConfig({
     daysAgo: " days ago",
     weeksAgo: " weeks ago",
   },
+  RSS: {
+    title: "Luke's Blog",
+    baseUrl: "https://blog.001015.xyz",
+    copyright: "Copyright © 2024-present Luke",
+  },
   comment: false,
   // comment: { ... } - Using custom component for better styling control
 });
@@ -62,6 +67,9 @@ export default defineConfig({
   title: "Luke's Blog",
   description: "Hi, I'm Luke!",
   cleanUrls: true,
+  sitemap: {
+    hostname: "https://blog.001015.xyz",
+  },
   markdown: {
     config: (md) => {
       md.use(mathjax3);
