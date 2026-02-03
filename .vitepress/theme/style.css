@@ -77,6 +77,11 @@ h6,
   font-family: var(--vp-font-family-base);
 }
 
+/* Add spacing between metadata and content */
+.vp-doc h1:not(.page-title) {
+  margin-top: 3rem;
+}
+
 /* 
   ---------------------------
   COMPONENT STYLING
