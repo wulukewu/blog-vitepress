@@ -1,5 +1,6 @@
 ---
 title: Science
+date: 2024-01-01
 ---
 
 # Science
