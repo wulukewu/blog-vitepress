@@ -4,10 +4,54 @@
         <title>Luke's Blog</title>
         <link>https://blog.001015.xyz</link>
         <description></description>
-        <lastBuildDate>Wed, 04 Feb 2026 15:29:18 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 04 Feb 2026 16:07:07 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>Copyright © 2024-present Luke</copyright>
+        <item>
+            <title><![CDATA[Ubuntu 快速安裝 Docker & Docker Compose]]></title>
+            <link>https://blog.001015.xyz/docs/devops/docker-install-ubuntu</link>
+            <guid isPermaLink="false">https://blog.001015.xyz/docs/devops/docker-install-ubuntu</guid>
+            <pubDate>Thu, 05 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[懶人包教學：在 Ubuntu 上使用官方腳本快速安裝 Docker，並透過 apt 安裝 Docker Compose。]]></description>
+            <content:encoded><![CDATA[<h1 id="frontmatter-title" tabindex="-1">{{ $frontmatter.title }} <a class="header-anchor" href="#frontmatter-title" aria-label="Permalink to &quot;{{ $frontmatter.title }}&quot;"></a></h1>
+<p>這是一篇快速筆記，記錄如何在 Ubuntu 系統上以最快速度安裝 Docker Engine 和 Docker Compose。</p>
+<h2 id="step-1-安裝-docker" tabindex="-1">Step 1: 安裝 Docker <a class="header-anchor" href="#step-1-安裝-docker" aria-label="Permalink to &quot;Step 1: 安裝 Docker&quot;"></a></h2>
+<p>使用官方提供的便利腳本 (Convenience Script) 進行安裝，這會自動處理 GPG key 和 Repository 的設定。</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">curl</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -fsSL</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> https://get.docker.com</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -o</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> get-docker.sh</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> sh</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> get-docker.sh</span></span></code></pre>
+</div><h2 id="step-2-設定使用者權限" tabindex="-1">Step 2: 設定使用者權限 <a class="header-anchor" href="#step-2-設定使用者權限" aria-label="Permalink to &quot;Step 2: 設定使用者權限&quot;"></a></h2>
+<p>預設情況下，執行 <code>docker</code> 指令需要 <code>sudo</code> 權限。為了方便使用，建議將目前的使用者加入 <code>docker</code> 群組。</p>
+<p>執行以下指令：</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> usermod</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -aG</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> docker</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> $USER</span></span></code></pre>
+</div><blockquote>
+<p><strong>注意</strong>：設定完成後，必須<strong>登出再重新登入</strong> (Log out &amp; Log in) 才會生效。</p>
+</blockquote>
+<p>重新登入後，可以測試是否能不加 sudo 執行：</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> hello-world</span></span></code></pre>
+</div><h2 id="step-3-安裝-docker-compose" tabindex="-1">Step 3: 安裝 Docker Compose <a class="header-anchor" href="#step-3-安裝-docker-compose" aria-label="Permalink to &quot;Step 3: 安裝 Docker Compose&quot;"></a></h2>
+<p>雖然上面的安裝腳本通常會包含 Compose Plugin，但如果你需要手動透過 <code>apt</code> 安裝或更新 Docker Compose，可以使用以下指令：</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> apt</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> update</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> apt</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> docker-compose-plugin</span></span></code></pre>
+</div><p>安裝完成後，檢查版本：</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> compose</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> version</span></span></code></pre>
+</div><blockquote>
+<p><strong>注意</strong>：現在推薦使用的是 <code>docker compose</code> (v2, 透過 plugin)，而不是舊版的 <code>docker-compose</code> (v1)。上述指令安裝的是新版 Plugin。</p>
+</blockquote>
+<h2 id="常用指令速查" tabindex="-1">常用指令速查 <a class="header-anchor" href="#常用指令速查" aria-label="Permalink to &quot;常用指令速查&quot;"></a></h2>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 啟動 Docker 服務</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> service</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> start</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 設定開機自動啟動</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> systemctl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> enable</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> docker</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 停止容器</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> stop</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">container_i</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">d</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 刪除所有停止的容器</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> container</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> prune</span></span></code></pre>
+</div>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Ubuntu Terminal 美化教學：zsh + oh-my-zsh + Powerlevel10k]]></title>
             <link>https://blog.001015.xyz/docs/devops/oh-my-zsh-p10k</link>
