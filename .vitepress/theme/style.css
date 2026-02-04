@@ -31,7 +31,12 @@
   --vp-c-gutter: rgba(148, 163, 184, 0.2);
 
   /* Glass Effects */
-  --vp-glass-bg: rgba(255, 255, 255, 0.7);
+  --vp-glass-bg: rgba(
+    255,
+    255,
+    255,
+    0.65
+  ); /* More transparent for better glass effect */
   --vp-glass-border: rgba(0, 0, 0, 0.05);
   --vp-glass-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
@@ -74,7 +79,7 @@
   --vp-c-gutter: rgba(148, 163, 184, 0.12);
 
   /* Glass Effects */
-  --vp-glass-bg: rgba(30, 41, 59, 0.4);
+  --vp-glass-bg: rgba(15, 23, 42, 0.5); /* More transparent in dark mode too */
   --vp-glass-border: rgba(255, 255, 255, 0.06);
   --vp-glass-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 
@@ -146,7 +151,31 @@ h6,
 .VPNavBar {
   background-color: var(--vp-glass-bg) !important;
   backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
   border-bottom: 1px solid var(--vp-glass-border);
+  z-index: 50 !important; /* Ensure it stays on top */
+}
+
+/* Force transparency on all inner containers */
+.VPNavBar .container,
+.VPNavBar .wrapper,
+.VPNavBar .content,
+.VPNavBar .content-body,
+.VPNavBar .menu,
+.VPNavBar .title,
+.VPNavBar .VPNavBarMenu,
+.VPNavBar .VPNavBarTitle,
+.VPNavBar .VPNavBarSearch,
+.VPNavBar .VPNavBarSocialLinks,
+.VPNavBar .VPNavBarHamburger,
+.VPNavBar .VPNavBarTranslations {
+  background-color: transparent !important;
+}
+
+/* Ensure Sidebar stays below Navbar or blends correctly */
+.VPSidebar {
+  z-index: 40 !important; /* Below Navbar */
+  top: var(--vp-nav-height) !important; /* Start below nav */
 }
 
 /* Buttons */
