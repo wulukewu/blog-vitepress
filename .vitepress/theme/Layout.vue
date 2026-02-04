@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useData, useRouter } from "vitepress";
 import BlogTheme from "@sugarat/theme";
-import { onMounted, ref, watch } from "vue";
+import { onMounted, ref, watch, computed } from "vue";
 import GiscusComment from "./components/GiscusComment.vue";
 
 const { Layout } = BlogTheme;
@@ -11,12 +11,30 @@ const router = useRouter();
 // Sidebar Toggle Logic
 const isSidebarOpen = ref(true);
 
+const showSidebarToggle = computed(() => {
+  // Hide if strictly home layout or home: true
+  return !frontmatter.value.home && frontmatter.value.layout !== "home";
+});
+
 const toggleSidebar = () => {
   isSidebarOpen.value = !isSidebarOpen.value;
   localStorage.setItem("blog-sidebar-open", String(isSidebarOpen.value));
 };
 
 // Initialize sidebar state
+const realSidebarWidth = ref(272);
+
+// Dynamic Sidebar Width Tracking
+const updateSidebarWidth = () => {
+  const sidebar = document.querySelector(".VPSidebar");
+  if (sidebar) {
+    const rect = sidebar.getBoundingClientRect();
+    if (rect.width > 0) {
+      realSidebarWidth.value = rect.width;
+    }
+  }
+};
+
 onMounted(() => {
   const saved = localStorage.getItem("blog-sidebar-open");
   if (saved !== null) {
@@ -25,6 +43,24 @@ onMounted(() => {
     // Default to open
     isSidebarOpen.value = true;
   }
+
+  // Observe sidebar width changes
+  updateSidebarWidth();
+  const sidebar = document.querySelector(".VPSidebar");
+  if (sidebar) {
+    const observer = new ResizeObserver(() => {
+      // Use requestAnimationFrame to avoid "ResizeObserver loop limit exceeded"
+      requestAnimationFrame(updateSidebarWidth);
+    });
+    observer.observe(sidebar);
+
+    // Cleanup on unmount (if necessary, though Layout is usually persistent)
+    // But since we can't easily access onUnmounted inside this scope if it were a component created/destroyed often...
+    // Layout is top level, so it's fine.
+  }
+
+  // Also listen for window resize as a fallback
+  window.addEventListener("resize", updateSidebarWidth);
 });
 
 const targetScrollPos = ref<number | null>(null);
@@ -95,8 +131,10 @@ onMounted(() => {
 
   <Teleport to="body">
     <button
+      v-if="showSidebarToggle"
       class="sidebar-toggle-btn"
       :class="{ collapsed: !isSidebarOpen }"
+      :style="{ left: isSidebarOpen ? `${realSidebarWidth}px` : '0px' }"
       @click="toggleSidebar"
       :title="isSidebarOpen ? 'Collapse Sidebar' : 'Expand Sidebar'"
     >
@@ -162,8 +200,7 @@ onMounted(() => {
   .sidebar-toggle-btn {
     position: fixed;
     top: 50%;
-    /* Use CSS variable if available, otherwise fallback. Standard VitePress sidebar is 272px usually, or var(--vp-sidebar-width) */
-    left: var(--vp-sidebar-width);
+    /* Left is handled by JS now */
     transform: translateY(-50%);
     z-index: 50; /* Ensure it's above content but maybe below some overlays */
     width: 24px;
@@ -191,7 +228,7 @@ onMounted(() => {
   }
 
   .sidebar-toggle-btn.collapsed {
-    left: 0;
+    /* left: 0 handled by JS */
     border-radius: 0 50px 50px 0; /* Keep shape */
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
   }
