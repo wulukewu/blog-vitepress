@@ -28,13 +28,39 @@ sudo sh get-docker.sh
 
 預設情況下，執行 `docker` 指令需要 `sudo` 權限。為了方便使用，建議將目前的使用者加入 `docker` 群組。
 
-執行以下指令：
+### 1. 確認 Docker 群組
+
+通常安裝 Docker 時會自動建立此群組。您可以執行以下指令確認：
+
+```bash
+cat /etc/group | grep docker
+```
+
+如果沒有看到相關輸出，請手動建立：
+
+```bash
+sudo groupadd docker
+```
+
+### 2. 將使用者加入群組
+
+將您的使用者帳號 (username) 加入 `docker` 群組：
 
 ```bash
 sudo usermod -aG docker $USER
 ```
 
-> **注意**：設定完成後，必須**登出再重新登入** (Log out & Log in) 才會生效。
+### 3. 套用變更 (刷新群組)
+
+要讓設定生效，通常需要登出再登入。但推薦使用以下**最快的解決方法**，直接在當前終端機刷新群組：
+
+```bash
+newgrp docker
+```
+
+這個指令會強制目前的 Shell 重新登入並載入 docker 群組。執行後，請再次嘗試執行 `docker ps` 看是否正常，如果正常顯示且無權限錯誤，即代表設定成功。
+
+> 若不使用 `newgrp`，則必須**登出再重新登入** (Log out & Log in) 才會生效。
 
 重新登入後，可以測試是否能不加 sudo 執行：
 
