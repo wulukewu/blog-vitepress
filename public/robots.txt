@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://blog.001015.xyz/sitemap.xml

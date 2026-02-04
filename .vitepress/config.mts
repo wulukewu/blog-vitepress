@@ -142,6 +142,16 @@ export default defineConfig({
         rel: "stylesheet",
       },
     ],
+    // SEO & Social
+    ["meta", { property: "og:type", content: "website" }],
+    ["meta", { property: "og:locale", content: "en" }],
+    ["meta", { property: "og:title", content: "Luke's Blog" }],
+    ["meta", { property: "og:site_name", content: "Luke's Blog" }],
+    [
+      "meta",
+      { property: "og:image", content: "https://blog.001015.xyz/logo.jpg" },
+    ],
+    ["meta", { property: "og:url", content: "https://blog.001015.xyz/" }],
   ],
   themeConfig: {
     logo: "/logo.jpg",
@@ -154,11 +164,11 @@ export default defineConfig({
         items: [
           {
             text: "Algorithm",
-            link: "/docs/algorithm/codeforces-algo-master/week-01",
+            link: "/docs/algorithm/",
           },
-          { text: "DevOps", link: "/docs/devops/docker-ubuntu-ssh-setup" },
-          { text: "Science", link: "/docs/science/quantum-system" },
-          { text: "Frontend", link: "/docs/frontend/vue-basic-syntax" },
+          { text: "DevOps", link: "/docs/devops/" },
+          { text: "Science", link: "/docs/science/" },
+          { text: "Frontend", link: "/docs/frontend/" },
         ],
       },
       { text: "About", link: "/about/" },
@@ -174,7 +184,7 @@ export default defineConfig({
   vite: {
     server: {
       watch: {
-        ignored: ["**/.vitepress/.temp/**"],
+        ignored: ["**/.vitepress/.temp/**", "**/*.timestamp-*.mjs"],
       },
     },
   },
