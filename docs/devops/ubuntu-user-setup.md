@@ -1,3 +1,15 @@
+---
+title: Ubuntu User Setup Guide
+date: 2026-02-22
+tags:
+  - Ubuntu
+  - Linux
+  - SSH
+categories:
+  - DevOps
+description: Ubuntu User Setup Guide
+---
+
 # Ubuntu User Setup Guide
 
 This guide covers the essential steps for setting up a new user on a fresh Ubuntu server.
