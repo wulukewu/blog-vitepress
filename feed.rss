@@ -4,7 +4,7 @@
         <title>Luke's Blog</title>
         <link>https://blog.001015.xyz</link>
         <description></description>
-        <lastBuildDate>Sat, 21 Feb 2026 17:28:10 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 21 Feb 2026 17:30:22 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>Copyright © 2024-present Luke</copyright>
@@ -12,9 +12,8 @@
             <title><![CDATA[Ubuntu User Setup Guide]]></title>
             <link>https://blog.001015.xyz/docs/devops/ubuntu-user-setup</link>
             <guid isPermaLink="false">https://blog.001015.xyz/docs/devops/ubuntu-user-setup</guid>
-            <pubDate>Sat, 21 Feb 2026 17:27:14 GMT</pubDate>
-            <description><![CDATA[This guide covers the essential steps for setting up a new user on a fresh Ubuntu server.
- 0. Instal]]></description>
+            <pubDate>Sun, 22 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ubuntu User Setup Guide]]></description>
             <content:encoded><![CDATA[<h1 id="ubuntu-user-setup-guide" tabindex="-1">Ubuntu User Setup Guide <a class="header-anchor" href="#ubuntu-user-setup-guide" aria-label="Permalink to &quot;Ubuntu User Setup Guide&quot;"></a></h1>
 <p>This guide covers the essential steps for setting up a new user on a fresh Ubuntu server.</p>
 <h2 id="_0-install-ssh-server-if-missing" tabindex="-1">0. Install SSH Server (If missing) <a class="header-anchor" href="#_0-install-ssh-server-if-missing" aria-label="Permalink to &quot;0. Install SSH Server (If missing)&quot;"></a></h2>
