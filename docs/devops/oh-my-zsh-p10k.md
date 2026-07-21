@@ -195,6 +195,44 @@ plugins=(
 source ~/.zshrc
 ```
 
+### 3. zoxide (智慧目錄跳躍)
+
+[zoxide](https://github.com/ajeetdsouza/zoxide) 是 `z` 的現代化替代品，會自動學習你常去的目錄，之後只要打 `z <關鍵字>` 就能瞬間跳過去，不用再打完整路徑。
+
+安裝方式（二選一）：
+
+**使用 curl**
+
+```bash
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+```
+
+**使用 apt**
+
+```bash
+sudo apt install zoxide -y
+```
+
+安裝完成後，在 `~/.zshrc` 最下面加入：
+
+```bash
+eval "$(zoxide init zsh)"
+```
+
+重啟 zsh 即可生效：
+
+```bash
+source ~/.zshrc
+```
+
+使用範例：
+
+| 指令 | 效果 |
+|---|---|
+| `z git` | 跳到名稱含 `git` 且最常去的目錄 |
+| `zi git` | 互動式選擇（需安裝 fzf） |
+| `z foo/bar` | 跳到路徑含 `foo/bar` 的目錄 |
+
 ## 結語
 
 現在你的 Ubuntu Terminal 已經脫胎換骨了！不僅看起來賞心悅目，透過強大的自動補全和提示，開發效率也會顯著提升。Enjoy your new terminal!
